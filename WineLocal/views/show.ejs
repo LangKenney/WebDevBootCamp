@@ -1,0 +1,63 @@
+<% include ./partials/header %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<div class="ui grid">
+        <div class="four wide column">
+            <div class="ui container segment">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="twelve wide column">
+            
+ 
+            <div class="ui container segment">
+            <div class="ui huge header"><%=winery.name%></div>
+            <p>Added: <%=winery.created.toDateString()%></p>
+            <div class="ui top attached">
+                <div class="item">
+                    <img class="ui centered rounded image" src="<%=winery.image%>">
+                    <div class="content">
+                        <p><%-winery.description%> </p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            <form action="/wineries/">
+                <button class="ui labeled icon button" type="submit">
+                    <i class="left arrow icon"></i>
+                        Back
+                </button>
+            </form>
+            <hr>
+            <div class="ui buttons">
+              <a class="ui yellow small button" href="/wineries/<%=winery._id %>/edit">Edit Winery</a> 
+              <div class="or"></div>
+                <form action="/wineries/<%= winery._id %>?_method=DELETE" method="POST">
+                        <button class="ui red button">Delete Winery</button>
+                </form>
+            </div>
+    </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    		var map;
+    		function initMap() {
+      		map = new google.maps.Map(document.getElementById('map'), {
+    		center: {lat: <%=winery.location1%>, lng: <%=winery.location2%>},
+    		zoom: 12
+      	});
+    }
+    var WeatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat="+<%=winery.location1%>+"&lon="+<%=winery.location2%>+"&appid=b4e4ecd77fc06e6944ca938ab6e909be";
+    console.log(WeatherAPI);
+  	$.getJSON( WeatherAPI, function(data){
+  	    $("#WeatherData").html(JSON.stringify(json));
+  	} )
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIkCUQrEEfCVogflK_GGUEmfO9Ozk0niI&callback=initMap">
+  
+</script>
+
+<% include ./partials/footer %>

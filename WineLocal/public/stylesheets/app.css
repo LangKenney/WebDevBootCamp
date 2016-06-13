@@ -1,0 +1,21 @@
+i.icon {
+    font-size: 2em;
+}
+
+.container.main {
+    margin-top: 5em;
+}
+
+body {
+    margin-top: 2em;
+}
+
+#location1, #location2{
+    float: left;
+    display: inline;
+}
+
+#map {
+    width:100%;
+    height: 300px;
+}

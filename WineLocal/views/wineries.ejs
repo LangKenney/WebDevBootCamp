@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge header">
+        Wineries
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% wineries.forEach(function(winery){ %>
+            <div class="item">
+                <div class="image"><img src="<%=winery.image%>"></div>
+                    <div class="content">
+                        <a class="header" href="/wineries/<%=winery._id%>"><%=winery.name%></a>
+                        <div class="meta">
+                            <span><%=winery.created.toDateString()%></span>
+                        </div>
+                        <div class="description">
+                            <p><%-winery.description.substring(0,70)%>... </p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui right labeled icon button" href="/wineries/<%=winery._id%>">
+                            Read More about this Winery <i class="right arrow icon"></i></a>
+                        </div>
+                    </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,125 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge header">
+        <h1>Update a Component in the library!</h1>
+    </div>
+    
+    <div class="ui top attached segment">
+        <form class="ui form" action="/index/<%=component._id%>?_method=PUT" method="POST">
+
+            <div class="field">
+                <label>Component Name</label>
+                <input type="text" name="component[name]" value="<%=component.name%>">
+            </div>
+            
+            <div class="field">
+                <label>Work Break down number (WBS)</label>
+                <input type="text" name="component[WBS]" value="<%=component.WBS%>">
+            </div>
+            
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="component[image]" value="<%=component.image%>">
+            </div>
+            
+            <div class="field">
+                <label>Domain</label>
+                <select name="component[domain]">
+                    <option value="avionics">Avionics</option>
+                    <option value="controls">Controls</option>
+                    <option value="GSE">GSE</option>
+                    <option value="initiation">Initiation</option>
+                    <option value="propulsion">Propulsion</option>
+                    <option value="power">Power</option>
+                    <option value="RF">RF</option>
+                    <option value="structures ">Structures </option>
+                </select>
+            </div>
+            
+            <div class="field">
+                <label>Responsible Engineer</label>
+                <input type="text" name="component[responsibleEngineer]" value="<%=component.responsibleEngineer%>">
+            </div>
+            
+            <div class="field">
+                <label>Stage</label>
+                <select name="component[stage]">
+                    <option value="FS">First Stage (FS)</option>
+                    <option value="IS">Inter Stage (IS)</option>
+                    <option value="NF">Nose Fairing (NF)</option>
+                    <option value="PA">Payload Adapter (PA)</option>
+                    <option value="SS">Second Stage (SS)</option>
+                </select>
+            </div>
+            
+            <div  class="field">
+                <label>Description</label>
+                <textarea name="component[description]"><%=component.description%></textarea>
+            </div>
+            
+            <div class="field">
+                <label>Quantity</label>
+                <input type="number" name="component[quantity]" value="<%=component.quantity%>">
+            </div>
+
+            <div class="field">
+                <label>FTU</label>
+                <input type="number" name="component[FTU]" value="<%=component.FTU%>">
+            </div>
+            
+            <div class="field">
+                <label>EDU</label>
+                <input type="number" name="component[EDU]" value="<%=component.EDU%>">
+            </div>
+            
+            <div class="field">
+                <label>GTU</label>
+                <input type="number" name="component[GTU]" value="<%=component.GTU%>">
+            </div>
+            
+            <div class="field">
+                <label>MM_DM</label>
+                <input type="number" name="component[MM_DM]" value="<%=component.MM_DM%>">
+            </div>
+
+            <div class="field">
+                <label>Make Vs Buy</label>
+                <select name="component[makeVsBuy]">
+                    <option value="Make">Make</option>
+                    <option value="Buy">Buy</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Weight</label>
+                <input type="number" name="component[weight]" value="<%=component.weight%>">
+            </div>
+
+            <div class="field">
+                <label>Power</label>
+                <input type="number" name="component[power]" value="<%=component.power%>">
+            </div>
+
+            <div class="field">
+                <label>Size</label>
+                <input type="text" name="component[size]" value="<%=component.size%>">
+            </div>
+
+            <div class="field">
+                <label>Vendor</label>
+                <input type="text" name="component[vendor]" value="<%=component.vendor%>">
+            </div>
+
+            <div class="field">
+                <label>Cost</label>
+                <input type="number" name="component[cost]" value="<%=component.cost%>">
+            </div>
+ 
+            
+            <input class="ui blue big button" type="submit"  value="Update the Component">
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,36 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge header">
+        <h1>Add A new Winery to the list!</h1>
+    </div>
+    
+    <div class="ui top attached segment">
+        <form class="ui form" action="/wineries" method="POST">
+            <div class="field">
+                <label>Winery Name</label>
+                <input type="text" name="winery[name]" placeholder="Winery Name">
+            </div>
+            
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="winery[image]" placeholder="Image">
+            </div>
+            
+            <div  class="field">
+                <label>Description</label>
+                <textarea name="winery[description]"></textarea>
+            </div>
+            
+            <div class="field">
+                <label>Location</label>
+                <input type="number" id="location1" name="winery[location1]" min="-180" max="180">
+                <input type="number" id="location2" name="winery[location2]" min="-180" max="180">
+            </div>
+            <input class="ui violet big button" type="submit"  value="Submit New Winery">
+        </form>
+    </div>
+    
+</div>
+
+<% include ./partials/footer %>

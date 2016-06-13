@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+<div class="ui grid">
+
+        
+    <div class="Right floated twelve wide column">
+        <div class="ui container segment">
+            <div class="ui huge header">
+            IRCPGS Component Library
+            </div>
+
+        <div class="ui top attached segment">
+            <div class="ui divided items">
+                
+                <% var weightTotal = 0 %>
+                <% var costTotal = 0 %>
+                
+                <% componentlibraries.forEach(function(component){ %>
+                
+                <% weightTotal = weightTotal+component.weight %>
+                <% costTotal = costTotal+component.cost %>
+
+                <div class="item">
+                    <div class="image"><img src="<%=component.image%>"></div>
+                        <div class="content">
+                            <a class="header" href="/index/<%=component._id%>"><%=component.name%></a>
+                            <div class="meta">
+                                <span><%=component.domain%></span>
+                            </div>
+                            <div class="description">
+                                <p><%-component.description.substring(0,70)%>... </p>
+                            </div>
+                            <div class="extra">
+                                <a class="ui right labeled icon button" href="/index/<%=component._id%>">
+                                More about this component <i class="right arrow icon"></i></a>
+                            </div>
+                        </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="Left floated four wide column ">
+    <div class="ui container segment">
+        <div>
+            <h1>Domain Weight:</h1>
+            <p><%=weightTotal%> lbf</p>
+            <hr>
+            <h1>Cost:</h1>
+            <p>$<%=costTotal%> </p>
+        </div>
+    </div>
+    </div>
+</div>
+<% include ../partials/footer %>

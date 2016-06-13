@@ -1,0 +1,119 @@
+<% include ../partials/header %>
+
+<div class="ui grid">
+        <div class="four wide column">
+            <div class="ui container segment">
+                <h2>Component Details:</h2>
+                <table class="table">
+                            <tr>
+                                <td>WBS:</td> 
+                                <td><%-component.WBS%></td>  
+                            </tr>
+                            
+                            <tr>
+                                <td>Domain: </td>
+                                <td><%-component.domain%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Responsible Engineer:  </td>
+                                <td><%-component.responsibleEngineer%></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Stage: </td>
+                                <td><%-component.stage%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Quantity: </td>
+                                <td><%-component.quantity%></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>FTU: </td>
+                                <td><%-component.FTU%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>FTU: </td>
+                                <td><%-component.EDU%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>GTU: </td>
+                                <td><%-component.GTU%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>MM_DM: </td>
+                                <td><%-component.MM_DM%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Make Vs Buy: </td>
+                                <td><%-component.makeVsBuy%></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Weight: </td>
+                                <td><%-component.weight%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Power: </td>
+                                <td><%-component.power%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Size: </td>
+                                <td><%-component.size%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Vendor: </td>
+                                <td><%-component.vendor%> </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Cost: </td>
+                                <td><%-component.cost%></td>
+                            </tr>
+                        </table>
+            </div>
+        </div>
+        <div class="twelve wide column">
+            
+            <div class="ui container segment">
+            <div class="ui huge header"><%=component.name%></div>
+            <p>Added: <%=component.added.toDateString()%></p>
+            <div class="ui top attached">
+                <div class="item">
+                    <img class="ui centered rounded image" src="<%=component.image%>">
+                    <div class="content">
+                        <p><%-component.description%> </p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            <form action="/index/">
+                <button class="ui labeled icon button" type="submit">
+                    <i class="left arrow icon"></i>
+                        Back
+                </button>
+            </form>
+            <hr>
+            <div class="ui buttons">
+              <a class="ui yellow small button" href="/index/<%=component._id %>/edit">Update Component</a> 
+              <div class="or"></div>
+                <form action="/index/<%= component._id %>?_method=DELETE" method="POST">
+                        <button class="ui red button">Delete Component</button>
+                </form>
+            </div>
+    </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
